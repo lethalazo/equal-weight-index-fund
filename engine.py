@@ -50,7 +50,7 @@ class EqualWeightIndexFundEngine:
         quotes = self.__getQuotesFromIEXCloud()
 
         prices = [quote['quote']['latestPrice'] for quote in quotes.values()]
-        marketCap = [quote['quote']['marketCap']   for quote in quotes.values()]
+        marketCap = [quote['quote']['marketCap'] for quote in quotes.values()]
         shareQuantity = [calculator.calcSharesToBuy(price) for price in prices]
 
         rows = [[symbol, prices[i], marketCap[i], shareQuantity[i]] for i, symbol in enumerate(quotes)]
